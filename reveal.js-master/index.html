@@ -6,6 +6,165 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/reveal.css">
   <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/theme/blood.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      font-family: 'Inter', sans-serif;
+    }
+
+    .reveal h1, .reveal h2, .reveal h3 {
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+
+    .reveal h1 {
+      font-size: 3.5rem;
+      text-align: center;
+      background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .reveal h2 {
+      font-size: 2.5rem;
+      border-bottom: 3px solid #ff6b6b;
+      padding-bottom: 0.5rem;
+    }
+
+    .reveal h3 {
+      font-size: 2rem;
+      color: #ff6b6b;
+    }
+
+    .reveal p {
+      font-size: 1.3rem;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .reveal ul {
+      font-size: 1.2rem;
+      line-height: 1.8;
+    }
+
+    .reveal li {
+      margin-bottom: 1rem;
+      position: relative;
+      padding-left: 1.5rem;
+    }
+
+    .reveal li::before {
+      content: '▸';
+      color: #ff6b6b;
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+    }
+
+    .reveal strong {
+      color: #ff6b6b;
+      font-weight: 600;
+    }
+
+    .reveal small {
+      font-size: 1.1rem;
+      opacity: 0.8;
+    }
+
+    /* Team names styling */
+    .team-names {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+
+    .team-member {
+      background: rgba(255, 107, 107, 0.1);
+      border: 2px solid rgba(255, 107, 107, 0.3);
+      border-radius: 10px;
+      padding: 0.5rem 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .team-member:hover {
+      background: rgba(255, 107, 107, 0.2);
+      transform: translateY(-3px);
+    }
+
+    /* Card styles for better organization */
+    .info-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 107, 107, 0.2);
+      border-radius: 10px;
+      padding: 1.5rem;
+      margin: 1rem 0;
+      backdrop-filter: blur(5px);
+    }
+
+    .ai-example {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 107, 107, 0.2);
+      border-radius: 10px;
+      padding: 1.5rem;
+      margin: 1rem 0;
+      backdrop-filter: blur(5px);
+    }
+
+    .ai-example h4 {
+      color: #ff6b6b;
+      margin-bottom: 0.5rem;
+      font-size: 1.2rem;
+    }
+
+    /* Demo images */
+    .demo-image {
+      border-radius: 10px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+      max-width: 85%;
+      height: auto;
+      margin: 1rem 0;
+    }
+
+    /* Icons */
+    .icon {
+      margin-right: 0.5rem;
+      color: #ff6b6b;
+    }
+
+    /* Animations */
+    .fade-in {
+      animation: fadeIn 0.8s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Progress bar color */
+    .reveal .progress {
+      color: #ff6b6b;
+    }
+
+    /* Controls color */
+    .reveal .controls {
+      color: #ff6b6b;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .reveal h1 { font-size: 2.5rem; }
+      .reveal h2 { font-size: 2rem; }
+      .reveal h3 { font-size: 1.5rem; }
+      .reveal p { font-size: 1.1rem; }
+      .team-names { flex-direction: column; align-items: center; }
+    }
+  </style>
 </head>
 <body>
 
@@ -14,25 +173,39 @@
 
     <!-- Slide 1: Título -->
     <section>
-      <h1>Vibe Coding</h1>
-      <p>Programar con IA</p>
-      <p><small>Andres, Alejo, Braian, Camilo y Matias</small></p>
+      <h1><i class="fas fa-code icon"></i>Vibe Coding</h1>
+      <p><i class="fas fa-robot icon"></i>Programar con IA</p>
+      <div class="team-names">
+        <div class="team-member">Andres</div>
+        <div class="team-member">Alejo</div>
+        <div class="team-member">Braian</div>
+        <div class="team-member">Camilo</div>
+        <div class="team-member">Matias</div>
+      </div>
     </section>
 
     
   <section>
       <!-- Section 2 -->
       <section>
-        <h2>¿Qué es el Vibe Coding?</h2>
-        <p class="fragment">Es una forma de programar asistido por inteligencia artificial.</p>
-        <p class="fragment">En lugar de escribir todo desde cero, la IA sugiere o genera el código por vos.</p>
-        <p class="fragment">Expresas tu creatividad y ideas en texto</p>
-        <p class="fragment">No es hacer trampa: es usar una herramienta que potencia tus ideas.</p>
+        <h2><i class="fas fa-lightbulb icon"></i>¿Qué es el Vibe Coding?</h2>
+        <div class="info-card">
+          <p class="fragment">Es una forma de programar asistido por inteligencia artificial.</p>
+        </div>
+        <div class="info-card">
+          <p class="fragment">En lugar de escribir todo desde cero, la IA sugiere o genera el código por vos.</p>
+        </div>
+        <div class="info-card">
+          <p class="fragment">Expresas tu creatividad y ideas en texto</p>
+        </div>
+        <div class="info-card">
+          <p class="fragment">No es hacer trampa: es usar una herramienta que potencia tus ideas.</p>
+        </div>
       </section>
 
       <!-- Section 2.2 -->
       <section>
-        <h2>¿Que ventajas tiene el Vibe Coding?</h2>
+        <h2><i class="fas fa-star icon"></i>¿Que ventajas tiene el Vibe Coding?</h2>
         <ul>
           <li class="fragment">Ahorra tiempo en tareas repetitivas</li>
           <li class="fragment">Te sugiere código listo para usar</li>
@@ -47,26 +220,33 @@
     <section>
       <!-- Section 3 -->
       <section>
-        <h3>¿Qué es una Inteligencia Artificial?</h3>
-        <p class="fragment">Es un sistema creado para imitar la inteligencia humana.</p>
-        <p class="fragment">Puede razonar, aprender, tomar decisiones o generar contenido.</p>
-        <p class="fragment">Se entrena con datos y patrones para resolver problemas complejos.</p>
+        <h3><i class="fas fa-brain icon"></i>¿Qué es una Inteligencia Artificial?</h3>
+        <div class="info-card">
+          <p class="fragment">Es un sistema creado para imitar la inteligencia humana.</p>
+        </div>
+        <div class="info-card">
+          <p class="fragment">Puede razonar, aprender, tomar decisiones o generar contenido.</p>
+        </div>
+        <div class="info-card">
+          <p class="fragment">Se entrena con datos y patrones para resolver problemas complejos.</p>
+        </div>
       </section>
 
       <!-- Section 3.2 -->
       <section>
-        <h2>IA´s mas comunes</h2>
-        <ul>
-          <li class="fragment">
-            <strong>ChatGPT</strong>: Asistente conversacional que responde preguntas, genera código, explica conceptos y ayuda en tiempo real.
-          </li>
-          <li class="fragment">
-            <strong>GitHub Copilot</strong>: Se integra en editores de código (como VS Code) para sugerir líneas completas de código a medida que escribís.
-          </li>
-          <li class="fragment">
-            <strong>Cursor</strong>: Un IDE basado en ChatGPT que permite escribir código y dialogar con la IA directamente sobre archivos del proyecto.
-          </li>
-        </ul>
+        <h2><i class="fas fa-tools icon"></i>IA´s mas comunes</h2>
+        <div class="ai-example">
+          <h4><i class="fas fa-comments icon"></i><strong>ChatGPT</strong></h4>
+          <p>Asistente conversacional que responde preguntas, genera código, explica conceptos y ayuda en tiempo real.</p>
+        </div>
+        <div class="ai-example">
+          <h4><i class="fas fa-code-branch icon"></i><strong>GitHub Copilot</strong></h4>
+          <p>Se integra en editores de código (como VS Code) para sugerir líneas completas de código a medida que escribís.</p>
+        </div>
+        <div class="ai-example">
+          <h4><i class="fas fa-terminal icon"></i><strong>Cursor</strong></h4>
+          <p>Un IDE basado en ChatGPT que permite escribir código y dialogar con la IA directamente sobre archivos del proyecto.</p>
+        </div>
       </section>  
     </section>
 
@@ -74,40 +254,41 @@
     <section>
       <!-- Section 4 -->
       <section>
-        <h3>Creando algo con Vibe Coding</h3>
+        <h3><i class="fas fa-magic icon"></i>Creando algo con Vibe Coding</h3>
         <p>Vamos a crear un HTML con ChatGPT utilizando vibe coding.</p>
       </section>
 
       <!-- Section 4.2 -->
       <section>
-        <h3>Plasmamos nuestra idea en texto</h3>
+        <h3><i class="fas fa-comment-dots icon"></i>Plasmamos nuestra idea en texto</h3>
         <p>Le preguntamos a ChatGPT y dejamos que la IA cree el código.</p>
-        <img src="pregunta_captura.png" alt="Pregunta formulada a ChatGPT" style="width: 80%; margin-top: 20px;">
+        <img src="pregunta_captura.png" alt="Pregunta formulada a ChatGPT" class="demo-image">
       </section>
 
       <!-- Section 4.3 -->
       <section>
-        <h3>Resultado generado por la IA</h3>
-        <img src="html_captura.png" alt="Resultado HTML generado" style="width: 80%; margin-top: 20px;">
+        <h3><i class="fas fa-check-circle icon"></i>Resultado generado por la IA</h3>
+        <img src="html_captura.png" alt="Resultado HTML generado" class="demo-image">
       </section>
     </section>
-
-
-
-
-
-
-
-
-
-
-
+    
   </div>
 </div>
 
 <script src="https://unpkg.com/reveal.js/dist/reveal.js"></script>
 <script>
-  Reveal.initialize();
+  Reveal.initialize({
+    hash: true,
+    transition: 'slide',
+    transitionSpeed: 'default',
+    backgroundTransition: 'fade',
+    controls: true,
+    progress: true,
+    center: false,
+    touch: true,
+    fragments: true,
+    help: true
+  });
 </script>
 
 </body>
