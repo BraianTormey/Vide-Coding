@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Punto Norte - Juguetería</title>
+    <style>
+        :root {
+            --primary: #ffb347;
+            --secondary: #6ec6ff;
+            --accent: #ff6f91;
+            --bg: #fff8e1;
+            --card-bg: #fff;
+            --footer-bg: #ffe082;
+            --text: #333;
+        }
+        body {
+            margin: 0;
+            font-family: 'Comic Sans MS', 'Comic Sans', cursive, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+        }
+        header {
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            padding: 2rem 1rem;
+            text-align: center;
+            border-bottom: 6px solid var(--accent);
+            position: sticky; /* <-- Añade esta línea */
+            top: 0;           /* <-- Añade esta línea */
+            z-index: 1000;    /* <-- Añade esta línea */
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            letter-spacing: 2px;
+            color: #fff;
+            text-shadow: 2px 2px 0 #ff6f91, 4px 4px 0 #fff176;
+        }
+        nav {
+            margin-top: 1rem;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 1rem;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: color 0.2s;
+            cursor: pointer;
+        }
+        nav a:hover {
+            color: var(--accent);
+        }
+        .productos {
+            padding: 2rem 1rem;
+            max-width: 1100px;
+            margin: auto;
+        }
+        .productos h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+            letter-spacing: 1px;
+        }
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+        }
+        .card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            box-shadow: 0 4px 16px rgba(255, 179, 71, 0.15);
+            width: 260px;
+            padding: 1.5rem 1rem;
+            text-align: center;
+            transition: transform 0.2s;
+            border: 3px dashed var(--secondary);
+            position: relative;
+        }
+        .card:hover {
+            transform: scale(1.05) rotate(-2deg);
+            box-shadow: 0 8px 24px rgba(255, 111, 145, 0.18);
+        }
+        .card img, .card .emoji {
+            width: 100px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.5rem;
+            margin: 0 auto 1rem auto;
+            border-radius: 50%;
+            background: var(--secondary);
+            padding: 0.5rem;
+            border: 3px solid var(--accent);
+        }
+        .card h3 {
+            margin: 0.5rem 0 0.3rem 0;
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+        .card p {
+            font-size: 1rem;
+            color: #555;
+            margin: 0;
+        }
+        .botones-categorias {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .botones-categorias button {
+            background: var(--secondary);
+            color: #fff;
+            border: none;
+            border-radius: 20px;
+            padding: 0.7rem 1.5rem;
+            margin: 0 0.5rem 1rem 0.5rem;
+            font-size: 1.1rem;
+            font-family: inherit;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s;
+        }
+        .botones-categorias button:hover, .botones-categorias button.active {
+            background: var(--accent);
+            color: #fff;
+        }
+        .categoria-seccion {
+            display: none;
+            animation: fadeIn 0.5s;
+        }
+        .categoria-seccion.active {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .sobre-nosotros {
+            background: linear-gradient(90deg, #fffde7 60%, #ffe0b2 100%);
+            padding: 2rem 1rem;
+            max-width: 900px;
+            margin: 2rem auto;
+            border-radius: 20px;
+            box-shadow: 0 2px 12px rgba(255, 179, 71, 0.10);
+        }
+        .sobre-nosotros h2 {
+            text-align: center;
+            color: var(--secondary);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        .sobre-nosotros p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            text-align: center;
+            color: #444;
+            margin: 0;
+        }
+        footer {
+            background: var(--footer-bg);
+            text-align: center;
+            padding: 1.5rem 1rem;
+            font-size: 1rem;
+            color: #6d4c41;
+            border-top: 4px solid var(--accent);
+            margin-top: 2rem;
+        }
+        @media (max-width: 800px) {
+            .cards {
+                flex-direction: column;
+                align-items: center;
+            }
+            .card {
+                width: 90%;
+            }
+        }
+        @media (max-width: 500px) {
+            header h1 {
+                font-size: 1.5rem;
+            }
+            .productos h2, .sobre-nosotros h2 {
+                font-size: 1.3rem;
+            }
+            .card {
+                padding: 1rem 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Punto Norte</h1>
+        <nav>
+            <a href="#productos">Productos</a>
+            <a href="#sobre-nosotros">Sobre Nosotros</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
+    </header>
+
+    <section class="productos" id="productos">
+        <h2>¡Nuestros Productos!</h2>
+        <div class="botones-categorias">
+            <button class="active" onclick="mostrarCategoria('bloques')">Bloques</button>
+            <button onclick="mostrarCategoria('peluches')">Peluches</button>
+            <button onclick="mostrarCategoria('autos')">Autos</button>
+            <button onclick="mostrarCategoria('rompecabezas')">Rompecabezas</button>
+        </div>
+        <div id="bloques" class="categoria-seccion active">
+            <div class="cards">
+                <div class="card">
+                    <div class="emoji">🧱</div>
+                    <h3>Bloques de construcción</h3>
+                    <p>¡Construye castillos, torres y todo lo que imagines!</p>
+                </div>
+                <div class="card">
+                    <div class="emoji">🔧</div>
+                    <h3>Herramientas de juguete</h3>
+                    <p>¡Arma y desarma con herramientas seguras y divertidas!</p>
+                </div>
+                <div class="card">
+                    <div class="emoji">🏗️</div>
+                    <h3>Grúas y camiones</h3>
+                    <p>¡Lleva los bloques a donde quieras con estos vehículos!</p>
+                </div>
+            </div>
+        </div>
+        <div id="peluches" class="categoria-seccion">
+            <div class="cards">
+                <div class="card">
+                    <div class="emoji">🧸</div>
+                    <h3>Ositos de peluche</h3>
+                    <p>Suaves y abrazables para dormir y jugar.</p>
+                </div>
+                <div class="card">
+                    <div class="emoji">🐶</div>
+                    <h3>Perros de peluche</h3>
+                    <p>¡Tu mejor amigo para todas las aventuras!</p>
+                </div>
+                <div class="card">
+                    <div class="emoji">🐱</div>
+                    <h3>Gatitos de peluche</h3>
+                    <p>Tiernos y listos para acompañarte siempre.</p>
+                </div>
+            </div>
+        </div>
+        <div id="autos" class="categoria-seccion">
+            <div class="cards">
+                <div class="card">
+                    <div class="emoji">🚗</div>
+                    <h3>Autos deportivos</h3>
+                    <p>¡Corre a toda velocidad en la pista de carreras!</p>
+                </div>
+                <div class="card">
+                    <div class="emoji">🚚</div>
+                    <h3>Camiones</h3>
+                    <p>Transporta juguetes y bloques por toda la casa.</p>
+                </div>
+                <div class="card">
+                    <div class="emoji">🚒</div>
+                    <h3>Camión de bomberos</h3>
+                    <p>¡Apaga incendios y salva el día!</p>
+                </div>
+            </div>
+        </div>
+        <div id="rompecabezas" class="categoria-seccion">
+            <div class="cards">
+                <div class="card">
+                    <div class="emoji">🧩</div>
+                    <h3>Rompecabezas clásicos</h3>
+                    <p>Desafía tu mente con piezas coloridas.</p>
+                </div>
+                <div class="card">
+                    <div class="emoji">🔢</div>
+                    <h3>Rompecabezas numéricos</h3>
+                    <p>Aprende y juega con números y formas.</p>
+                </div>
+                <div class="card">
+                    <div class="emoji">🌈</div>
+                    <h3>Rompecabezas arcoíris</h3>
+                    <p>¡Colores brillantes para los más pequeños!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="sobre-nosotros" id="sobre-nosotros">
+        <h2>Sobre Nosotros</h2>
+        <p>
+            En <strong>Punto Norte</strong> creemos en la magia de jugar. Somos una juguetería dedicada a ofrecer productos de calidad, seguros y educativos para niños de todas las edades. Nuestro equipo está comprometido con la alegría y el desarrollo de los más pequeños, brindando atención personalizada y una experiencia inolvidable para toda la familia.
+        </p>
+    </section>
+
+    <footer id="contacto">
+        <strong>Contacto:</strong> <br>
+        📍 Calle de la Diversión 123, Ciudad Feliz <br>
+        📞 (123) 456-7890 <br>
+        ✉️ contacto@puntonorte.com <br>
+        <span style="font-size:0.9em;">&copy; 2024 Punto Norte Juguetería</span>
+    </footer>
+    <script>
+        function mostrarCategoria(cat) {
+            document.querySelectorAll('.categoria-seccion').forEach(s => s.classList.remove('active'));
+            document.getElementById(cat).classList.add('active');
+            document.querySelectorAll('.botones-categorias button').forEach(b => b.classList.remove('active'));
+            const idx = {bloques:0, peluches:1, autos:2, rompecabezas:3}[cat];
+            document.querySelectorAll('.botones-categorias button')[idx].classList.add('active');
+        }
+    </script>
+</body>
+</html>
