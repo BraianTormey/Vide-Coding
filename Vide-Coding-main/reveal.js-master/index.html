@@ -1,0 +1,290 @@
+<!doctype html>
+<style>
+  /* Google Fonts import */
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Fira+Mono&display=swap');
+
+  html, body {
+    font-family: 'Montserrat', Arial, sans-serif;
+    background: linear-gradient(120deg, #2b2b38 0%, #3a1c4a 100%);
+    background-attachment: fixed;
+    font-size: 15px; /* Reduce base font size */
+  }
+
+  .reveal {
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+    border-radius: 18px;
+    background: rgba(30, 30, 40, 0.85);
+    padding: 10px 0;
+  }
+
+  .reveal .slides section {
+    border-radius: 14px;
+    box-shadow: 0 2px 16px 0 rgba(0,0,0,0.10);
+    background: rgba(40, 20, 40, 0.04);
+    padding: 18px 0;
+    transition: box-shadow 0.4s;
+  }
+
+  .reveal .slides section:hover {
+    box-shadow: 0 4px 32px 0 rgba(80,0,80,0.10);
+  }
+
+  h1, h2, h3 {
+    font-family: 'Montserrat', Arial, sans-serif;
+    letter-spacing: 1px;
+    color: #fff;
+    text-shadow: 0 2px 8px rgba(80,0,80,0.10);
+    margin-bottom: 0.5em;
+    animation: fadeInDown 1s;
+  }
+
+  h1 {
+    font-size: 2.1em;
+  }
+  h2 {
+    font-size: 1.5em;
+  }
+  h3 {
+    font-size: 1.2em;
+  }
+
+  h1::before {
+    content: "💡 ";
+    font-size: 1.1em;
+    vertical-align: middle;
+  }
+
+  h2::before {
+    content: "✨ ";
+    font-size: 1em;
+    vertical-align: middle;
+  }
+
+  h3::before {
+    content: "🛠️ ";
+    font-size: 0.95em;
+    vertical-align: middle;
+  }
+
+  p, li {
+    font-size: 1em;
+    color: #f3eaff;
+    text-shadow: 0 1px 4px rgba(40,0,40,0.08);
+    line-height: 1.5;
+    animation: fadeIn 1.2s;
+  }
+
+  ul {
+    padding-left: 1.2em;
+  }
+
+  ul li {
+    position: relative;
+    margin-bottom: 0.7em;
+    list-style: none;
+    opacity: 0;
+    animation: fadeInUp 0.8s forwards;
+    animation-delay: calc(var(--li-index, 1) * 0.12s);
+  }
+
+  ul li::before {
+    content: "•";
+    color: #ff4b9b;
+    font-size: 1.1em;
+    margin-right: 0.5em;
+    vertical-align: middle;
+    display: inline-block;
+    animation: bounceIn 0.7s;
+  }
+
+  .fragment {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s, transform 0.6s;
+  }
+  .fragment.visible {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  img {
+    border-radius: 18px;
+    box-shadow: 0 4px 32px 0 rgba(80,0,80,0.18);
+    border: 2px solid rgba(255,255,255,0.08);
+    transition: box-shadow 0.4s, transform 0.4s;
+    background: rgba(255,255,255,0.03);
+  }
+  img:hover {
+    box-shadow: 0 8px 48px 0 rgba(255,76,155,0.18);
+    transform: scale(1.03);
+  }
+
+  @keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-30px);}
+    to { opacity: 1; transform: none;}
+  }
+  @keyframes fadeIn {
+    from { opacity: 0;}
+    to { opacity: 1;}
+  }
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px);}
+    to { opacity: 1; transform: none;}
+  }
+  @keyframes bounceIn {
+    0% { transform: scale(0.5);}
+    60% { transform: scale(1.2);}
+    100% { transform: scale(1);}
+  }
+
+  code, pre {
+    font-family: 'Fira Mono', monospace;
+    background: rgba(40,20,40,0.12);
+    border-radius: 8px;
+    padding: 2px 6px;
+    color: #ffb4fa;
+    font-size: 0.95em;
+  }
+
+  @media (max-width: 700px) {
+    .reveal .slides section {
+      padding: 8px 0;
+    }
+    h1, h2, h3 {
+      font-size: 1em;
+    }
+    img {
+      width: 98% !important;
+    }
+  }
+</style>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Vibe Coding</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/reveal.css">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/theme/blood.css">
+</head>
+<body>
+
+<div class="reveal">
+  <div class="slides">
+
+    <!-- Slide 1: Título -->
+    <section>
+      <h1>Vibe Coding</h1>
+      <p>Programar con IA</p>
+      <p><small>André, Alejo, Braian, Camilo y Matias</small></p>
+    </section>
+
+    
+  <section>
+      <!-- Section 2 -->
+      <section>
+        <h2>¿Qué es el Vibe Coding?</h2>
+        <p class="fragment">Es una forma de programar asistido por inteligencia artificial.</p>
+        <p class="fragment">En lugar de escribir todo desde cero, la IA sugiere o genera el código por vos.</p>
+        <p class="fragment">Expresas tu creatividad e ideas en texto</p>
+        <p class="fragment">No es hacer trampa: es usar una herramienta que potencia tus ideas.</p>
+      </section>
+
+      <!-- Section 2.2 -->
+      <section>
+        <h2>¿Que ventajas tiene el Vibe Coding?</h2>
+        <ul>
+          <li class="fragment">Ahorra tiempo en tareas repetitivas</li>
+          <li class="fragment">Te sugiere código listo para usar</li>
+          <li class="fragment">Facilita el aprendizaje</li>
+          <li class="fragment">Reduce errores comunes en la programación</li>
+          <li class="fragment">No es necesario tener conocimientos sobre programacion</li>
+        </ul>
+      </section>
+    </section>
+
+    <!-- Section 3 (vertical stack): ¿Qué es una IA? y ejemplos de IAs -->
+    <section>
+      <!-- Section 3 -->
+      <section>
+        <h3>¿Qué es una Inteligencia Artificial?</h3>
+        <p class="fragment">Es un sistema creado para imitar la inteligencia humana.</p>
+        <p class="fragment">Puede razonar, aprender, tomar decisiones o generar contenido.</p>
+        <p class="fragment">Se entrena con datos y patrones para resolver problemas complejos.</p>
+      </section>
+
+      <!-- Section 3.2 -->
+      <section>
+        <h2>IA´s mas comunes</h2>
+        <ul>
+          <li class="fragment">
+            <strong>ChatGPT</strong>: Asistente conversacional que responde preguntas, genera código, explica conceptos y ayuda en tiempo real.
+          </li>
+          <li class="fragment">
+            <strong>GitHub Copilot</strong>: Se integra en editores de código (como VS Code) para sugerir líneas completas de código a medida que escribís.
+          </li>
+          <li class="fragment">
+            <strong>Cursor</strong>: Un IDE basado en ChatGPT que permite escribir código y dialogar con la IA directamente sobre archivos del proyecto.
+          </li>
+        </ul>
+      </section>  
+    </section>
+
+    <!-- Section 4 (vertical stack): Creando algo con Vibe Coding -->
+    <section>
+      <!-- Section 4 -->
+      <section>
+        <h3>Creando algo con Vibe Coding</h3>
+        <p>Vamos a crear un HTML con Cursor utilizando vibe coding.</p>
+      </section>
+
+      <!-- Section 4.2 -->
+      <section>
+        <h3>Plasmamos nuestra idea en texto</h3>
+        <img src="primerpro.png" alt="Pregunta formulada a Cursor" style="width: 80%; margin-top: 20px;">
+      </section>
+
+      <!-- Section 4.3 -->
+      <section>
+        <h3>Resultado generado</h3>
+        <img src="primerapag.png" alt="Resultado HTML generado" style="width: 100%; margin-top: 20px;">
+      </section>
+
+      <!-- Section 4.4 -->
+      <section>
+        <h3>Modificaciones en la página</h3>
+        <img src="pro1.png" alt="Modificación parte superior" style="width: 65%; margin-bottom: 20px;">
+        <img src="pro2.png" alt="Modificación parte inferior" style="width: 65%;">
+      </section>
+
+      <!-- Section 4.5 -->
+      <section>
+        <h3>Más modificaciones</h3>
+        <img src="pro3.png" alt="Otra modificación parte superior" style="width: 65%; margin-bottom: 20px;">
+        <img src="pro4.png" alt="Otra modificación parte inferior" style="width: 65%;">
+      </section>
+      <!-- Section 4.6 -->
+      <section>
+        <h3>Resultados finales</h3>
+        <div style="display: flex; justify-content: center; align-items: center; gap: 20px;">
+          <img src="ultimapag1.png" alt="Versión final izquierda" style="width: 100%;">
+        </div>
+      </section>
+
+      <!-- Section 4.7 -->
+       <section>
+        <h3>Resultados finales</h3>
+        <div style="display: flex; justify-content: center; align-items: center; gap: 20px;">
+          <img src="ultimapag2.png" alt="Versión final derecha" style="width: 100%;">
+        </div>
+      </section>
+    </section>
+  </div>
+</div>
+
+<script src="https://unpkg.com/reveal.js/dist/reveal.js"></script>
+<script>
+  Reveal.initialize();
+</script>
+
+</body>
+</html>
