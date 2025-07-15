@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda Electrodomésticos</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #f4f4f4 0%, #e3f0ff 30%, #ffe3ec 60%, #e0ffe3 100%);
+        }
+        .navbar {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+        }
+        .productos .card {
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .productos .card:hover {
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.13);
+        }
+        .map-responsive {
+            overflow: hidden;
+            padding-bottom: 56.25%;
+            position: relative;
+            height: 0;
+        }
+        .map-responsive iframe {
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+        }
+        .weather-box {
+            min-width: 200px;
+        }
+        .video-responsive {
+            overflow: hidden;
+            padding-bottom: 56.25%;
+            position: relative;
+            height: 0;
+        }
+        .video-responsive iframe {
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.13);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <div class="container-fluid">
+        <a class="navbar-brand fw-bold" href="#"><i class="bi bi-lightning-charge"></i> Electro Hogar</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#productos">Productos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contacto">Contacto</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Encabezado -->
+    <header class="bg-light py-5 mb-4 shadow-sm">
+      <div class="container text-center">
+        <h1 class="display-4 fw-bold mb-2 animate__animated animate__fadeInDown">Electro Hogar</h1>
+        <p class="lead animate__animated animate__fadeInUp">¡Los mejores electrodomésticos para tu hogar!</p>
+      </div>
+    </header>
+
+    <!-- Productos -->
+    <div class="container mb-5" id="productos">
+      <h2 class="mb-4 text-primary fw-bold animate__animated animate__fadeInLeft">Productos Destacados</h2>
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 productos">
+        <div class="col">
+          <div class="card h-100 animate__animated animate__zoomIn">
+            <img src="refri.png" class="card-img-top p-3" alt="Refrigerador" style="height:180px; object-fit:contain;">
+            <div class="card-body">
+              <h5 class="card-title">Refrigerador</h5>
+              <p class="card-text">Capacidad 300L, bajo consumo energético.</p>
+            </div>
+            <div class="card-footer bg-white border-0 d-flex justify-content-between align-items-center">
+              <span class="fw-bold text-primary">$1,200,000</span>
+              <button class="btn btn-outline-primary btn-sm"><i class="bi bi-cart-plus"></i> Comprar</button>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100 animate__animated animate__zoomIn">
+            <img src="lava.png" class="card-img-top p-3" alt="Lavadora" style="height:180px; object-fit:contain;">
+            <div class="card-body">
+              <h5 class="card-title">Lavadora</h5>
+              <p class="card-text">8kg, 1200 rpm, varios programas de lavado.</p>
+            </div>
+            <div class="card-footer bg-white border-0 d-flex justify-content-between align-items-center">
+              <span class="fw-bold text-primary">$900,000</span>
+              <button class="btn btn-outline-primary btn-sm"><i class="bi bi-cart-plus"></i> Comprar</button>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100 animate__animated animate__zoomIn">
+            <img src="micro.png" class="card-img-top p-3" alt="Microondas" style="height:180px; object-fit:contain;">
+            <div class="card-body">
+              <h5 class="card-title">Microondas</h5>
+              <p class="card-text">1000W, grill, 25L, fácil de usar.</p>
+            </div>
+            <div class="card-footer bg-white border-0 d-flex justify-content-between align-items-center">
+              <span class="fw-bold text-primary">$350,000</span>
+              <button class="btn btn-outline-primary btn-sm"><i class="bi bi-cart-plus"></i> Comprar</button>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100 animate__animated animate__zoomIn">
+            <img src="aspi.png" class="card-img-top p-3" alt="Aspiradora" style="height:180px; object-fit:contain;">
+            <div class="card-body">
+              <h5 class="card-title">Aspiradora</h5>
+              <p class="card-text">Potente succión, filtro HEPA, ligera.</p>
+            </div>
+            <div class="card-footer bg-white border-0 d-flex justify-content-between align-items-center">
+              <span class="fw-bold text-primary">$400,000</span>
+              <button class="btn btn-outline-primary btn-sm"><i class="bi bi-cart-plus"></i> Comprar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contacto y Mapa -->
+    <footer id="contacto" class="bg-primary bg-gradient text-white pt-4 pb-2 mt-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-md-4 mb-3">
+            <h5><i class="bi bi-envelope"></i> Contacto</h5>
+            <p class="mb-1">info@electrohogar.com</p>
+            <p class="mb-1"><i class="bi bi-telephone"></i> Tel: 123-456-7890</p>
+            <div class="video-responsive mt-4">
+              <iframe width="100%" height="200" src="https://www.youtube.com/embed/q3u46Dhtm1c" title="Electrodomésticos" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+          </div>
+          <div class="col-12 col-md-8 mb-3">
+            <h5><i class="bi bi-geo-alt"></i> Ubicación: Dolores, Argentina</h5>
+            <div class="map-responsive rounded shadow-sm">
+              <iframe
+                src="https://www.google.com/maps?q=Dolores,+Buenos+Aires,+Argentina&output=embed"
+                width="100%" height="200" style="border:0; border-radius:8px;"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+              </iframe>
+            </div>
+          </div>
+        </div>
+        <div class="text-center mt-3">
+          <small>&copy; 2024 Electro Hogar. Todos los derechos reservados.</small>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS y Animate.css para animaciones -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+</body>
+</html>
